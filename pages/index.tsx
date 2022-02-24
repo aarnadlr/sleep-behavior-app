@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import Select from '../components/Select';
-import { useState, useEffect } from 'react';
+import { calculateScore } from '../helpers/calculateScore';
 
 export default function Index() {
   // store user values
@@ -13,18 +14,14 @@ export default function Index() {
   // fetch response
   const [response, setResponse] = useState<string | null>(null);
 
-  // calculate score
-  const calculateScore = (durationInBed: number, durationAsleep: number) => {
-    const score = (100 * durationAsleep) / durationInBed;
-    setScore(score);
-  };
-
   // submit form
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // calculate score and set in state
-    calculateScore(durationInBed, durationAsleep);
+    const score = calculateScore(durationInBed, durationAsleep);
+
+    setScore(score);
   };
 
   // Make POST request when score has been stored

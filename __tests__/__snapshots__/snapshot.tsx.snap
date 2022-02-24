@@ -2,115 +2,563 @@
 
 exports[`renders homepage unchanged 1`] = `
 <div>
-  <div
-    class="container"
-  >
+  <div>
     <main>
       <h1
-        class="title"
+        class="text-2xl"
       >
-        Welcome to
-        <a
-          href="https://nextjs.org"
-        >
-          Next.js!
-        </a>
+        Sleep Behavior App
       </h1>
-      <p
-        class="description"
-      >
-        Get started by editing
-        <code>
-          pages/index.js
-        </code>
-      </p>
-      <div
-        class="grid"
-      >
-        <a
-          class="card"
-          href="https://nextjs.org/docs"
+      <form>
+        <div
+          class="flex flex-col my-3"
         >
-          <h3>
-            Documentation →
-          </h3>
-          <p>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-        <a
-          class="card"
-          href="https://nextjs.org/learn"
-        >
-          <h3>
-            Learn →
-          </h3>
-          <p>
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </a>
-        <a
-          class="card"
-          href="https://github.com/vercel/next.js/tree/canary/examples"
-        >
-          <h3>
-            Examples →
-          </h3>
-          <p>
-            Discover and deploy boilerplate example Next.js projects.
-          </p>
-        </a>
-        <a
-          class="card"
-          href="https://vercel.com/new"
-        >
-          <h3>
-            Deploy →
-          </h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-    <footer
-      class="footer"
-    >
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Powered by
-
-        <span
-          class="logo"
-        >
-          <span
-            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+          <label
+            class="text-gray-500 text-sm"
+            for="Duration in bed"
           >
-            <span
-              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+            Duration in bed
+          </label>
+          <div
+            class="flex"
+          >
+            <select
+              class="max-w-fit bg-gray-200 p-1.5 mr-1.5"
+              id="Duration in bed"
+              name="Duration in bed"
             >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
-                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-              />
-            </span>
-            <img
-              alt="Vercel Logo"
-              data-nimg="intrinsic"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-            <noscript />
-          </span>
+              <option
+                value="0"
+              >
+                0 mins
+              </option>
+              <option
+                value="30"
+              >
+                30 mins
+              </option>
+              <option
+                value="60"
+              >
+                1 hour
+              </option>
+              <option
+                value="90"
+              >
+                1.5 hours
+              </option>
+              <option
+                value="120"
+              >
+                2 hours
+              </option>
+              <option
+                value="150"
+              >
+                2.5 hours
+              </option>
+              <option
+                value="180"
+              >
+                3 hours
+              </option>
+              <option
+                value="210"
+              >
+                3.5 hours
+              </option>
+              <option
+                value="240"
+              >
+                4 hours
+              </option>
+              <option
+                value="270"
+              >
+                4.5 hours
+              </option>
+              <option
+                value="300"
+              >
+                5 hours
+              </option>
+              <option
+                value="330"
+              >
+                5.5 hours
+              </option>
+              <option
+                value="360"
+              >
+                6 hours
+              </option>
+              <option
+                value="390"
+              >
+                6.5 hours
+              </option>
+              <option
+                value="420"
+              >
+                7 hours
+              </option>
+              <option
+                value="450"
+              >
+                7.5 hours
+              </option>
+              <option
+                value="480"
+              >
+                8 hours
+              </option>
+              <option
+                value="510"
+              >
+                8.5 hours
+              </option>
+              <option
+                value="540"
+              >
+                9 hours
+              </option>
+              <option
+                value="570"
+              >
+                9.5 hours
+              </option>
+              <option
+                value="600"
+              >
+                10 hours
+              </option>
+              <option
+                value="630"
+              >
+                10.5 hours
+              </option>
+              <option
+                value="660"
+              >
+                11 hours
+              </option>
+              <option
+                value="690"
+              >
+                11.5 hours
+              </option>
+              <option
+                value="720"
+              >
+                12 hours
+              </option>
+              <option
+                value="750"
+              >
+                12.5 hours
+              </option>
+              <option
+                value="780"
+              >
+                13 hours
+              </option>
+              <option
+                value="810"
+              >
+                13.5 hours
+              </option>
+              <option
+                value="840"
+              >
+                14 hours
+              </option>
+              <option
+                value="870"
+              >
+                14.5 hours
+              </option>
+              <option
+                value="900"
+              >
+                15 hours
+              </option>
+              <option
+                value="930"
+              >
+                15.5 hours
+              </option>
+              <option
+                value="960"
+              >
+                16 hours
+              </option>
+              <option
+                value="990"
+              >
+                16.5 hours
+              </option>
+              <option
+                value="1020"
+              >
+                17 hours
+              </option>
+              <option
+                value="1050"
+              >
+                17.5 hours
+              </option>
+              <option
+                value="1080"
+              >
+                18 hours
+              </option>
+              <option
+                value="1110"
+              >
+                18.5 hours
+              </option>
+              <option
+                value="1140"
+              >
+                19 hours
+              </option>
+              <option
+                value="1170"
+              >
+                19.5 hours
+              </option>
+              <option
+                value="1200"
+              >
+                20 hours
+              </option>
+              <option
+                value="1230"
+              >
+                20.5 hours
+              </option>
+              <option
+                value="1260"
+              >
+                21 hours
+              </option>
+              <option
+                value="1290"
+              >
+                21.5 hours
+              </option>
+              <option
+                value="1320"
+              >
+                22 hours
+              </option>
+              <option
+                value="1350"
+              >
+                22.5 hours
+              </option>
+              <option
+                value="1380"
+              >
+                23 hours
+              </option>
+              <option
+                value="1410"
+              >
+                23.5 hours
+              </option>
+              <option
+                value="1440"
+              >
+                24 hours
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="flex flex-col my-3"
+        >
+          <label
+            class="text-gray-500 text-sm"
+            for="Duration asleep"
+          >
+            Duration asleep
+          </label>
+          <div
+            class="flex"
+          >
+            <select
+              class="max-w-fit bg-gray-200 p-1.5 mr-1.5"
+              id="Duration asleep"
+              name="Duration asleep"
+            >
+              <option
+                value="0"
+              >
+                0 mins
+              </option>
+              <option
+                value="30"
+              >
+                30 mins
+              </option>
+              <option
+                value="60"
+              >
+                1 hour
+              </option>
+              <option
+                value="90"
+              >
+                1.5 hours
+              </option>
+              <option
+                value="120"
+              >
+                2 hours
+              </option>
+              <option
+                value="150"
+              >
+                2.5 hours
+              </option>
+              <option
+                value="180"
+              >
+                3 hours
+              </option>
+              <option
+                value="210"
+              >
+                3.5 hours
+              </option>
+              <option
+                value="240"
+              >
+                4 hours
+              </option>
+              <option
+                value="270"
+              >
+                4.5 hours
+              </option>
+              <option
+                value="300"
+              >
+                5 hours
+              </option>
+              <option
+                value="330"
+              >
+                5.5 hours
+              </option>
+              <option
+                value="360"
+              >
+                6 hours
+              </option>
+              <option
+                value="390"
+              >
+                6.5 hours
+              </option>
+              <option
+                value="420"
+              >
+                7 hours
+              </option>
+              <option
+                value="450"
+              >
+                7.5 hours
+              </option>
+              <option
+                value="480"
+              >
+                8 hours
+              </option>
+              <option
+                value="510"
+              >
+                8.5 hours
+              </option>
+              <option
+                value="540"
+              >
+                9 hours
+              </option>
+              <option
+                value="570"
+              >
+                9.5 hours
+              </option>
+              <option
+                value="600"
+              >
+                10 hours
+              </option>
+              <option
+                value="630"
+              >
+                10.5 hours
+              </option>
+              <option
+                value="660"
+              >
+                11 hours
+              </option>
+              <option
+                value="690"
+              >
+                11.5 hours
+              </option>
+              <option
+                value="720"
+              >
+                12 hours
+              </option>
+              <option
+                value="750"
+              >
+                12.5 hours
+              </option>
+              <option
+                value="780"
+              >
+                13 hours
+              </option>
+              <option
+                value="810"
+              >
+                13.5 hours
+              </option>
+              <option
+                value="840"
+              >
+                14 hours
+              </option>
+              <option
+                value="870"
+              >
+                14.5 hours
+              </option>
+              <option
+                value="900"
+              >
+                15 hours
+              </option>
+              <option
+                value="930"
+              >
+                15.5 hours
+              </option>
+              <option
+                value="960"
+              >
+                16 hours
+              </option>
+              <option
+                value="990"
+              >
+                16.5 hours
+              </option>
+              <option
+                value="1020"
+              >
+                17 hours
+              </option>
+              <option
+                value="1050"
+              >
+                17.5 hours
+              </option>
+              <option
+                value="1080"
+              >
+                18 hours
+              </option>
+              <option
+                value="1110"
+              >
+                18.5 hours
+              </option>
+              <option
+                value="1140"
+              >
+                19 hours
+              </option>
+              <option
+                value="1170"
+              >
+                19.5 hours
+              </option>
+              <option
+                value="1200"
+              >
+                20 hours
+              </option>
+              <option
+                value="1230"
+              >
+                20.5 hours
+              </option>
+              <option
+                value="1260"
+              >
+                21 hours
+              </option>
+              <option
+                value="1290"
+              >
+                21.5 hours
+              </option>
+              <option
+                value="1320"
+              >
+                22 hours
+              </option>
+              <option
+                value="1350"
+              >
+                22.5 hours
+              </option>
+              <option
+                value="1380"
+              >
+                23 hours
+              </option>
+              <option
+                value="1410"
+              >
+                23.5 hours
+              </option>
+              <option
+                value="1440"
+              >
+                24 hours
+              </option>
+            </select>
+          </div>
+        </div>
+        <button
+          class="disabled:bg-gray-400 px-5 py-2 bg-gray-800 text-white mt-3"
+          disabled=""
+          type="submit"
+        >
+          Select values
+        </button>
+      </form>
+      <h2
+        class="my-10 text-gray-600"
+      >
+        Output:
+        <span
+          class="text-amber-500"
+        >
+           Loading...
         </span>
-      </a>
-    </footer>
+      </h2>
+    </main>
   </div>
 </div>
 `;
