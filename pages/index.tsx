@@ -26,6 +26,7 @@ export default function Index() {
 
   // Make POST request when score has been stored
   useEffect(() => {
+    // Do not run on initial render
     if (score) {
       fetch('/api/score', {
         method: 'POST',
@@ -41,16 +42,18 @@ export default function Index() {
   }, [score]);
 
   return (
-    <div>
+    <div data-testid="container">
       <Head>
         <title>Sleep Behavior App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1 className="text-2xl">Sleep Behavior App</h1>
+      <main data-testid="main">
+        <h1 data-testid="header" className="text-2xl">
+          Sleep Behavior App
+        </h1>
 
-        <form onSubmit={handleSubmit}>
+        <form data-testid="form" onSubmit={handleSubmit}>
           <Select
             label="Duration in bed"
             stateValue={durationInBed}
@@ -63,6 +66,7 @@ export default function Index() {
           />
 
           <button
+            data-testid="submit-button"
             disabled={!(durationInBed && durationAsleep)}
             type="submit"
             className="disabled:bg-gray-400 px-5 py-2 bg-gray-800 text-white mt-3"
@@ -72,12 +76,12 @@ export default function Index() {
         </form>
 
         {/* render response when loaded */}
-        <h2 className="my-10 text-gray-600">
+        <h2 data-testid="output-text" className="my-10 text-gray-600">
           Output:
           {response ? (
             <span className="text-green-600"> {response}</span>
           ) : (
-            <span className="text-amber-500"> Loading...</span>
+            <span data-testid='loading' className="text-amber-500"> Loading...</span>
           )}
         </h2>
       </main>

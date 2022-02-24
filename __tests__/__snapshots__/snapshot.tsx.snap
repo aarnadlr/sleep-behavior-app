@@ -2,14 +2,21 @@
 
 exports[`renders homepage unchanged 1`] = `
 <div>
-  <div>
-    <main>
+  <div
+    data-testid="container"
+  >
+    <main
+      data-testid="main"
+    >
       <h1
         class="text-2xl"
+        data-testid="header"
       >
         Sleep Behavior App
       </h1>
-      <form>
+      <form
+        data-testid="form"
+      >
         <div
           class="flex flex-col my-3"
         >
@@ -24,6 +31,7 @@ exports[`renders homepage unchanged 1`] = `
           >
             <select
               class="max-w-fit bg-gray-200 p-1.5 mr-1.5"
+              data-testid="Duration in bed"
               id="Duration in bed"
               name="Duration in bed"
             >
@@ -289,6 +297,7 @@ exports[`renders homepage unchanged 1`] = `
           >
             <select
               class="max-w-fit bg-gray-200 p-1.5 mr-1.5"
+              data-testid="Duration asleep"
               id="Duration asleep"
               name="Duration asleep"
             >
@@ -542,6 +551,7 @@ exports[`renders homepage unchanged 1`] = `
         </div>
         <button
           class="disabled:bg-gray-400 px-5 py-2 bg-gray-800 text-white mt-3"
+          data-testid="submit-button"
           disabled=""
           type="submit"
         >
@@ -550,10 +560,12 @@ exports[`renders homepage unchanged 1`] = `
       </form>
       <h2
         class="my-10 text-gray-600"
+        data-testid="output-text"
       >
         Output:
         <span
           class="text-amber-500"
+          data-testid="loading"
         >
            Loading...
         </span>

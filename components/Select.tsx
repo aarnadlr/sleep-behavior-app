@@ -16,6 +16,7 @@ export default function Select({ label, setStateFunction, stateValue }: Props) {
 
       <div className="flex">
         <select
+          data-testid={label}
           className="max-w-fit bg-gray-200 p-1.5 mr-1.5"
           name={label}
           id={label}
