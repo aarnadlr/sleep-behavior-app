@@ -1,5 +1,5 @@
 export function calculateScore(durationInBed: number, durationAsleep: number) {
-  const score = (100 * durationAsleep) / durationInBed;
+  const score: number = (100 * durationAsleep) / durationInBed;
 
   return score;
 }

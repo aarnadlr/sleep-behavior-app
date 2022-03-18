@@ -12,7 +12,7 @@ export default function Index() {
   const [didCalculate, setDidCalculate] = useState<boolean>(false);
 
   // calculated score
-  const [score, setScore] = useState([]);
+  const [score, setScore] = useState<number>();
 
   // fetch response
   const [response, setResponse] = useState<string | null>(null);
@@ -43,7 +43,7 @@ export default function Index() {
           console.error('There was an error:', error);
         });
     }
-  }, [score]);
+  }, [score, didCalculate]);
 
   return (
     <div data-testid="container">
