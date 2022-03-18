@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { dataObj } from '../helpers/dataObj';
 
 type Props = {
   label: string;
   setStateFunction: (value: number) => void;
-  stateValue: number;
+  durationInBed: number;
+  durationAsleep: number;
+  isDisabled: boolean;
 };
 
-export default function Select({ label, setStateFunction, stateValue }: Props) {
+export default function Select({
+  label,
+  setStateFunction,
+  durationInBed,
+  durationAsleep,
+  isDisabled,
+}: Props) {
+  // const [durationInBedContent, setDurationInBedContent] = useState();
+
+  const handleChange = (e) => {
+    setStateFunction(Number(e.target.value));
+    // setDurationInBedContent(e.target.name);
+  };
+
   return (
     <div className="flex flex-col my-3">
-
       <label className="text-gray-500 text-sm" htmlFor={label}>
         {label}
       </label>
@@ -20,10 +35,42 @@ export default function Select({ label, setStateFunction, stateValue }: Props) {
           className="max-w-fit bg-gray-200 p-1.5 mr-1.5"
           name={label}
           id={label}
-          value={stateValue}
-          onChange={(e) => setStateFunction(Number(e.target.value))}
+          value={label === 'Duration In Bed' ? durationInBed : durationAsleep}
+          onChange={handleChange}
+          disabled={isDisabled}
         >
-          <option value="0">0 mins</option>
+          {!durationInBed ? (
+            <option value={0}>
+              0 mins
+            </option>
+          ) : (
+            Object.entries(dataObj)
+              .filter((item) => {
+                return Number(item[0]) <= durationInBed;
+              })
+              .map((item, index) => {
+                return (
+                  <option key={index} value={item[0]}>
+                    {item[1]}
+                  </option>
+                );
+              })
+          )}
+
+          {/* {
+            Object.entries(dataObj).filter((item, index) => {
+              
+               
+              return (
+                <= stateValue 
+                
+                <option key={index} value={item[0]}>{item[1]}</option>
+              )
+
+            })
+          } */}
+
+          {/* <option value="0">0 mins</option>
           <option value="30">30 mins</option>
           <option value="60">1 hour</option>
           <option value="90">1.5 hours</option>
@@ -71,9 +118,8 @@ export default function Select({ label, setStateFunction, stateValue }: Props) {
           <option value="1350">22.5 hours</option>
           <option value="1380">23 hours</option>
           <option value="1410">23.5 hours</option>
-          <option value="1440">24 hours</option>
+          <option value="1440">24 hours</option> */}
         </select>
-
       </div>
     </div>
   );

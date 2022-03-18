@@ -1,15 +1,18 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import Select from '../components/Select';
+import DurationInBed from '../components/DurationInBed';
+import DurationAsleep from '../components/DurationAsleep';
 import { calculateScore } from '../helpers/calculateScore';
+
 
 export default function Index() {
   // store user values
-  const [durationInBed, setDurationInBed] = useState(0);
-  const [durationAsleep, setDurationAsleep] = useState(0);
+  const [durationInBed, setDurationInBed] = useState<number>(0);
+  const [durationAsleep, setDurationAsleep] = useState<number>(0);
+  const [didCalculate, setDidCalculate] = useState<boolean>(false);
 
   // calculated score
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState([]);
 
   // fetch response
   const [response, setResponse] = useState<string | null>(null);
@@ -22,12 +25,13 @@ export default function Index() {
     const score = calculateScore(durationInBed, durationAsleep);
 
     setScore(score);
+    setDidCalculate(true);
   };
 
   // Make POST request when score has been stored
   useEffect(() => {
     // Do not run on initial render
-    if (score) {
+    if (didCalculate) {
       fetch('/api/score', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -54,24 +58,28 @@ export default function Index() {
         </h1>
 
         <form data-testid="form" onSubmit={handleSubmit}>
-          <Select
+          <DurationInBed
             label="Duration in bed"
-            stateValue={durationInBed}
+            durationInBed={durationInBed}
             setStateFunction={setDurationInBed}
+            isDisabled={false}
           />
-          <Select
+          
+          <DurationAsleep
             label="Duration asleep"
-            stateValue={durationAsleep}
+            durationInBed={durationInBed}
+            durationAsleep={durationAsleep}
             setStateFunction={setDurationAsleep}
+            isDisabled={!durationInBed}
           />
 
           <button
             data-testid="submit-button"
-            disabled={!(durationInBed && durationAsleep)}
+            disabled={!durationInBed}
             type="submit"
             className="disabled:bg-gray-400 px-5 py-2 bg-gray-800 text-white mt-3"
           >
-            {!(durationInBed && durationAsleep) ? 'Select values' : 'Calculate'}
+            {!(durationInBed) ? 'Select values' : 'Calculate'}
           </button>
         </form>
 
