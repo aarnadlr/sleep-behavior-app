@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import DurationInBed from '../components/DurationInBed';
 import DurationAsleep from '../components/DurationAsleep';
 import { calculateScore } from '../helpers/calculateScore';
-
+import { dataObj } from '../helpers/dataObj';
 
 export default function Index() {
   // store user values
@@ -26,6 +26,11 @@ export default function Index() {
 
     setScore(score);
     setDidCalculate(true);
+  };
+
+  const handleChange = (e:any) => {
+    setDurationAsleep(Number(e.target.value));
+    // setDurationInBedContent(e.target.name);
   };
 
   // Make POST request when score has been stored
@@ -64,14 +69,56 @@ export default function Index() {
             setStateFunction={setDurationInBed}
             isDisabled={false}
           />
-          
-          <DurationAsleep
-            label="Duration asleep"
-            durationInBed={durationInBed}
-            durationAsleep={durationAsleep}
-            setStateFunction={setDurationAsleep}
-            isDisabled={!durationInBed}
-          />
+
+          <div className="flex flex-col my-3">
+            <label className="text-gray-500 text-sm" htmlFor={'Duration asleep'}>
+              {'Duration asleep'}
+            </label>
+
+            <div className="flex">
+              <select
+                data-testid={'Duration asleep'}
+                className="max-w-fit bg-gray-200 p-1.5 mr-1.5"
+                name={'Duration asleep'}
+                id={'Duration asleep'}
+                value={
+                  durationAsleep
+                }
+                onChange={handleChange}
+                disabled={!durationInBed}
+              >
+                {!durationInBed ? (
+                  <option value={0}>0 mins</option>
+                ) : (
+                  // Object.entries(dataObj)
+                  //   .filter((item) => {
+                  //     return Number(item[0]) <= durationInBed;
+                  //   })
+                  //   .map((item, index) => {
+                  //     return (
+                  //       <option key={index} value={item[0]}>
+                  //         {item[1]}
+                  //       </option>
+                  //     );
+                  //   })
+                  Object.entries(dataObj)
+                    .reduce((acc, curr) => {
+                      if (Number(curr[0]) <= durationInBed) {
+                        acc.push(curr)
+                      }
+                      return acc
+                    }, [])
+                    .map((item, index) => {
+                    return (
+                      <option key={index} value={item[0]}>
+                        {item[1]}
+                      </option>
+                    );
+                  })
+                )}
+              </select>
+            </div>
+          </div>
 
           <button
             data-testid="submit-button"
@@ -79,7 +126,7 @@ export default function Index() {
             type="submit"
             className="disabled:bg-gray-400 px-5 py-2 bg-gray-800 text-white mt-3"
           >
-            {!(durationInBed) ? 'Select values' : 'Calculate'}
+            {!durationInBed ? 'Select values' : 'Calculate'}
           </button>
         </form>
 
@@ -89,7 +136,10 @@ export default function Index() {
           {response ? (
             <span className="text-green-600"> {response}</span>
           ) : (
-            <span data-testid='loading' className="text-amber-500"> Loading...</span>
+            <span data-testid="loading" className="text-amber-500">
+              {' '}
+              Loading...
+            </span>
           )}
         </h2>
       </main>
